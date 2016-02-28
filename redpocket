@@ -1,0 +1,19 @@
+import random
+
+def redPocket(people,money):
+    result=[]
+    remain=people
+    max_money=money/people*2
+    for i in range(people):
+        remain-=1
+        if remain>0:
+            m=random.randint(1,min(money-remain,max_money))#保证每人最少得到1分钱
+        else:
+            m=money
+        money-=m
+        result.append(m/100.0)
+    return result
+
+people=int(input('红包个数:\n'))
+money=int(input('总金额:\n')*100)
+redPocket(people,money)
